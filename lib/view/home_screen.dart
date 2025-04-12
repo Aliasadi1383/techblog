@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_interpolation_to_compose_strings
 
 import 'package:flutter/material.dart';
-import 'package:tec/fake_data.dart';
+import 'package:tec/models/fake_data.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/component/my_colors.dart';
 import 'package:tec/component/my_component.dart';

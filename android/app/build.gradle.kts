@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.alia"
+    namespace = "com.example.tec"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 

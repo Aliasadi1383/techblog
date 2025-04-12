@@ -1,4 +1,4 @@
-import 'package:tec/data_models.dart';
+import 'package:tec/models/data_models.dart';
 import 'package:tec/gen/assets.gen.dart';
 
 Map homePagePosterMap = {

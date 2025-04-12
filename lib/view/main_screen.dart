@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:tec/component/api_constant.dart';
+import 'package:tec/component/my_component.dart';
+import 'package:tec/component/my_strings.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/component/my_colors.dart';
+import 'package:tec/services/dio_service.dart';
 import 'package:tec/view/home_screen.dart';
 import 'package:tec/view/profile_screen.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+final GlobalKey<ScaffoldState> _key = GlobalKey();
 
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
+class MainScreen extends StatelessWidget {
+  RxInt selectedPageIndex = 0.obs;
 
-class _MainScreenState extends State<MainScreen> {
-  final GlobalKey<ScaffoldState> _key = GlobalKey();
-
-  var selectedPageIndex = 0;
+  MainScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    DioService().getMethod(ApiConstant.getHomeItems);
     var textTheme = Theme.of(context).textTheme;
     var size = MediaQuery.of(context).size;
     double bodyMargin = size.width / 10;
@@ -37,7 +40,9 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 ListTile(
                   title: Text('پروفایل کاربر', style: textTheme.headlineLarge),
-                  onTap: () {},
+                  onTap: () {
+                    selectedPageIndex.value=1;
+                  },
                 ),
                 Divider(color: SolidColors.dividerColor),
                 ListTile(
@@ -50,7 +55,9 @@ class _MainScreenState extends State<MainScreen> {
                     'اشتراک گذاری تک بلاگ',
                     style: textTheme.headlineLarge,
                   ),
-                  onTap: () {},
+                  onTap: () async{
+                  await Share.share(MyStrings.shareText);
+                  },
                 ),
                 Divider(color: SolidColors.dividerColor),
                 ListTile(
@@ -58,7 +65,9 @@ class _MainScreenState extends State<MainScreen> {
                     'تک بلاگ در گیت هاب',
                     style: textTheme.headlineLarge,
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    myLaunchUrl(MyStrings.techBlogGithubUrl);
+                  },
                 ),
                 Divider(color: SolidColors.dividerColor),
               ],
@@ -92,8 +101,8 @@ class _MainScreenState extends State<MainScreen> {
           child: Stack(
             children: [
               Positioned.fill(
-                child: IndexedStack(
-                  index: selectedPageIndex,
+                child: Obx(() => IndexedStack(
+                  index: selectedPageIndex.value,
                   children: [
                     HomeScreen(
                       size: size,
@@ -106,15 +115,15 @@ class _MainScreenState extends State<MainScreen> {
                       bodyMargin: bodyMargin,
                     ),
                   ],
-                ),
+                ),),
               ),
               BottomNavigation(
                 size: size,
                 bodyMargin: bodyMargin,
                 changeScreen: (int value) {
-                  setState(() {
-                    selectedPageIndex = value;
-                  });
+                  
+                    selectedPageIndex.value = value;
+                
                 },
               ),
             ],
