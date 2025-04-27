@@ -34,6 +34,14 @@ class $AssetsIconsGen {
   /// File path: assets/icons/write.png
   AssetGenImage get write => const AssetGenImage('assets/icons/write.png');
 
+  /// File path: assets/icons/write_article_icon.png
+  AssetGenImage get writeArticleIcon =>
+      const AssetGenImage('assets/icons/write_article_icon.png');
+
+  /// File path: assets/icons/write_podcast_icon.png
+  AssetGenImage get writePodcastIcon =>
+      const AssetGenImage('assets/icons/write_podcast_icon.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
     microphone,
@@ -42,6 +50,8 @@ class $AssetsIconsGen {
     home,
     user,
     write,
+    writeArticleIcon,
+    writePodcastIcon,
   ];
 }
 
@@ -58,6 +68,10 @@ class $AssetsImagesGen {
   AssetGenImage get downCatArrow =>
       const AssetGenImage('assets/images/downCatArrow.png');
 
+  /// File path: assets/images/emptyState.svg
+  SvgGenImage get emptyState =>
+      const SvgGenImage('assets/images/emptyState.svg');
+
   /// File path: assets/images/posterTest.png
   AssetGenImage get posterTest =>
       const AssetGenImage('assets/images/posterTest.png');
@@ -66,7 +80,14 @@ class $AssetsImagesGen {
   SvgGenImage get tecbut => const SvgGenImage('assets/images/tecbut.svg');
 
   /// List of all assets
-  List<dynamic> get values => [a1, avatar, downCatArrow, posterTest, tecbut];
+  List<dynamic> get values => [
+    a1,
+    avatar,
+    downCatArrow,
+    emptyState,
+    posterTest,
+    tecbut,
+  ];
 }
 
 class Assets {

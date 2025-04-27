@@ -2,15 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:tec/controller/register_controller.dart';
 import 'package:tec/gen/assets.gen.dart';
-import 'package:tec/component/my_colors.dart';
-import 'package:tec/component/my_strings.dart';
-import 'package:tec/view/my_cats.dart';
+import 'package:tec/constant/my_strings.dart';
 import 'package:validators/validators.dart';
 
 class RegisterIntro extends StatelessWidget {
-  const RegisterIntro({super.key});
+   RegisterIntro({super.key});
 
+  var registerController=Get.find<RegisterController>();
   @override
   Widget build(BuildContext context) {
     var textTheme = Theme.of(context).textTheme;
@@ -74,8 +75,9 @@ class RegisterIntro extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.all(24),
                                   child: TextField(
+                                    controller: registerController.emailTextEditingController,
                                     onChanged: (value) {
-                                      print(value+"is Email = "+isEmail(value).toString());
+                                      debugPrint("${value}is Email = ${isEmail(value)}");
                                     },
                                     textAlign: TextAlign.center,
                                     decoration: InputDecoration(
@@ -84,7 +86,8 @@ class RegisterIntro extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                ElevatedButton(onPressed: (){
+                                ElevatedButton(onPressed: ()async{
+                                  registerController.register();
                                   Navigator.pop(context);
                                _activateCodeEmailBottomSheet(context, size, textTheme);
                                 }, child: Text('ادامه')),
@@ -120,8 +123,9 @@ class RegisterIntro extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.all(24),
                                   child: TextField(
+                                    controller: registerController.activeCodeTextEditingController,
                                     onChanged: (value) {
-                                      print(value+"is Email = "+isEmail(value).toString());
+                                      debugPrint("${value}is Email = ${isEmail(value)}");
                                     },
                                     textAlign: TextAlign.center,
                                     decoration: InputDecoration(
@@ -131,7 +135,8 @@ class RegisterIntro extends StatelessWidget {
                                   ),
                                 ),
                                 ElevatedButton(onPressed: (){
-                                 Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => MyCats(),));
+                                  registerController.verify();
+                                // Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => MyCats(),));
                                 }, child: Text('ادامه')),
                               ],
                             ),

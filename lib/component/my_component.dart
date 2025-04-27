@@ -1,10 +1,14 @@
+// ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables, camel_case_types
+
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:tec/models/fake_data.dart';
+import 'package:get/get.dart';
+import 'package:tec/component/text_style.dart';
+import 'package:tec/controller/home_screen_controller.dart';
 import 'package:tec/gen/assets.gen.dart';
-import 'package:tec/component/my_colors.dart';
+import 'package:tec/constant/my_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TechDivider extends StatelessWidget {
@@ -61,7 +65,7 @@ class MainTags extends StatelessWidget {
             ),
             SizedBox(width: 8),
             Text(
-              tagList[index].title,
+              Get.find<HomeScreenController>().tagslist[index].title!,
               style: textTheme.displayMedium,
             ),
           ],
@@ -94,3 +98,95 @@ class MainTags extends StatelessWidget {
     );
   }
 }
+  PreferredSize appbar(String title) {
+    return PreferredSize(
+          preferredSize: Size.fromHeight(80),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: AppBar(
+              backgroundColor: Colors.transparent,
+           actions: [
+              Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: Center(child: Text(title,style: appbartextstyle,)),
+              )
+           ],
+           leading: Padding(
+             padding: const EdgeInsets.only(right: 16),
+             child: Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                    color: SolidColors.primaryColors.withBlue(100),
+                    shape: BoxShape.circle
+                ),
+                child: Icon(Icons.keyboard_arrow_right_rounded),
+             ),
+           ),
+          ),
+        ),
+      );
+  }
+  PreferredSize appBar(String title) {
+    return PreferredSize(
+          preferredSize: Size.fromHeight(60),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: AppBar(
+              backgroundColor: Colors.transparent,
+           actions: [
+              Padding(
+                padding: const EdgeInsets.only(left: 16),
+                child: Center(child: Text(title,style: appbartextstyle,)),
+              )
+           ],
+           leading: GestureDetector(
+            onTap: () {
+              Get.back();
+            },
+             child: Padding(
+               padding: const EdgeInsets.only(right: 16),
+               child: Container(
+                  height: 40,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      color: SolidColors.primaryColors.withBlue(100),
+                      shape: BoxShape.circle
+                  ),
+                  child: Icon(Icons.keyboard_arrow_right_rounded,color: SolidColors.lightText,),
+               ),
+             ),
+           ),
+          ),
+        ),
+      );
+  }
+ 
+
+class SeeMore extends StatelessWidget {
+  const SeeMore({super.key, required this.bodyMargin, required this.textTheme,required this.title});
+
+  final double bodyMargin;
+  final TextTheme textTheme;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(right: bodyMargin, bottom: 8),
+      child: Row(
+        children: [
+          ImageIcon(
+            Assets.icons.bluepen.provider(),
+            color: SolidColors.seemore,
+          ),
+          SizedBox(width: 8),
+          Text(title, style: textTheme.displaySmall),
+        ],
+      ),
+    );
+  }
+}
+
+
+

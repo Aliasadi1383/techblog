@@ -1,7 +1,7 @@
 class MyStrings {
   static const String viewHotestBlog = 'مشاهده داغ ترین نوشته ها';
   static const String techBlogGithubUrl = 'https://github.com/Aliasadi1383/techblog';
-  static const String viewHotestPodCasts = 'مشاهده داغ ترین پارکست ها';
+  static const String viewHotestPodCasts = 'مشاهده داغ ترین پادکست ها';
   static const String relatedaArticle = 'نوشته های مرتبط';
   static const String submitArticle = 'ارسال مقاله';
   static const String submitPodCasts = 'ارسال پادکست';
@@ -16,6 +16,8 @@ class MyStrings {
 
 برای ارسال مطلب و پادکست باید حتما 
 ثبت نام کنی """;
+ static const String articleEmpty = """هنوز هیچ مقاله ای به جامعه گیک های فارسی 
+اضافه نکردی !!!""";
  static const String shareText = """ 
 
  من از تک بلاگ استفاده می کنم ، خیلی باحاله ، تو هم داشته باش \n

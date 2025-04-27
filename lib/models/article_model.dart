@@ -1,4 +1,4 @@
-import 'package:tec/component/api_constant.dart';
+import 'package:tec/constant/api_constant.dart';
 
 class ArticleModel {
   String? id;
@@ -9,18 +9,20 @@ class ArticleModel {
   String? author;
   String? view;
   String? status;
+  //String? isFavorite;
   String? createdAt;
 
   ArticleModel({
-    this.id,
-    this.title,
-    this.image,
-    this.catId,
-    this.author,
-    this.view,
-    this.status,
-    this.createdAt,
-    this.catName,
+   required this.id,
+   required this.title,
+   required this.image,
+   required this.catId,
+   required this.author,
+   required this.view,
+   required this.status,
+   required this.createdAt,
+  //this.isFavorite,
+   required this.catName,
   });
   ArticleModel.fromjson(Map<String, dynamic> element) {
    id=element["id"];

@@ -47,4 +47,12 @@ class GradiantColors {
     Color.fromARGB(195, 72, 20, 88),
     Color.fromARGB(255, 280, 20, 81),
   ];
+   static const List<Color> singleAppbarGradiant = [
+    Color.fromARGB(255, 46, 3,71),
+    Color.fromARGB(0, 0, 0, 0),
+  ]; 
+  static const List<Color> singleNewsGradiant = [
+    Color.fromARGB(100, 255, 255,255),
+    Color.fromARGB(130, 0, 0, 0),
+  ];
 }

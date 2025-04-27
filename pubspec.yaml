@@ -45,6 +45,10 @@ dependencies:
   url_launcher: ^6.3.1
   dio: ^5.8.0+1
   cached_network_image: ^3.4.1
+  flutter_widget_from_html: ^0.16.0
+  get_storage_pro: ^0.1.9
+  file_picker: ^10.1.2
+  html_editor_enhanced: ^1.8.0
 
 
 dev_dependencies:
