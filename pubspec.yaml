@@ -47,14 +47,17 @@ dependencies:
   cached_network_image: ^3.4.1
   flutter_widget_from_html: ^0.16.0
   get_storage_pro: ^0.1.9
-  file_picker: ^10.1.2
-  html_editor_enhanced: ^1.8.0
-
+  file_picker: ^8.0.3
+  html_editor_enhanced: ^2.6.0
+  flutter_inappwebview: ^6.1.5
+  percent_indicator: ^4.2.5
+  just_audio: ^0.9.46
+  audio_video_progress_bar: ^2.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^4.0.0
 
 
   # The "flutter_lints" package below contains a set of recommended lints to

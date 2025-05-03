@@ -44,7 +44,7 @@ class MainTags extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 60,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(
           Radius.circular(24),
         ),
@@ -63,7 +63,7 @@ class MainTags extends StatelessWidget {
               color: Colors.white,
               size: 16,
             ),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Text(
               Get.find<HomeScreenController>().tagslist[index].title!,
               style: textTheme.displayMedium,
@@ -100,7 +100,7 @@ class MainTags extends StatelessWidget {
 }
   PreferredSize appbar(String title) {
     return PreferredSize(
-          preferredSize: Size.fromHeight(80),
+          preferredSize: const Size.fromHeight(80),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: AppBar(
@@ -120,7 +120,7 @@ class MainTags extends StatelessWidget {
                     color: SolidColors.primaryColors.withBlue(100),
                     shape: BoxShape.circle
                 ),
-                child: Icon(Icons.keyboard_arrow_right_rounded),
+                child: const Icon(Icons.keyboard_arrow_right_rounded),
              ),
            ),
           ),
@@ -129,7 +129,7 @@ class MainTags extends StatelessWidget {
   }
   PreferredSize appBar(String title) {
     return PreferredSize(
-          preferredSize: Size.fromHeight(60),
+          preferredSize: const Size.fromHeight(60),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: AppBar(
@@ -153,7 +153,7 @@ class MainTags extends StatelessWidget {
                       color: SolidColors.primaryColors.withBlue(100),
                       shape: BoxShape.circle
                   ),
-                  child: Icon(Icons.keyboard_arrow_right_rounded,color: SolidColors.lightText,),
+                  child: const Icon(Icons.keyboard_arrow_right_rounded,color: SolidColors.lightText,),
                ),
              ),
            ),
@@ -180,7 +180,7 @@ class SeeMore extends StatelessWidget {
             Assets.icons.bluepen.provider(),
             color: SolidColors.seemore,
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           Text(title, style: textTheme.displaySmall),
         ],
       ),

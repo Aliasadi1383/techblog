@@ -12,6 +12,7 @@ import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/constant/my_colors.dart';
 import 'package:tec/component/my_component.dart';
 import 'package:tec/constant/my_strings.dart';
+import 'package:tec/route_manager/names.dart';
 import 'package:tec/view/articles/article_list_screen.dart';
 import 'package:tec/view/articles/single.dart';
 
@@ -34,17 +35,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       child: Obx(
         () => Padding(
-          padding: EdgeInsets.fromLTRB(0, 16, 0, 0),
+          padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
           child: homeScreenController.loading.value == false
               ? Column(
                   children: [
                     poster(),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     tags(),
-                    SizedBox(height: 32),
+                    const SizedBox(height: 32),
                     GestureDetector(
                       onTap: () => Get.to(ArticleListScreen(title: 'مقالات جدید')),
                       child: SeeMore(
@@ -56,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                     topVisited(),
                     SeeMorePodcast(bodyMargin: bodyMargin, textTheme: textTheme),
                     topPodcasts(),
-                    SizedBox(height: 70),
+                    const SizedBox(height: 70),
                   ],
                 )
               : const Center(child: loading()),
@@ -78,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                 singleArticleController.getArticleInfo(
                   homeScreenController.topVisitedList[index].id,
                 );
-                Get.to(Single());
+                Get.to(const Single());
               },
               child: Padding(
                 padding: EdgeInsets.only(right: index == 0 ? bodyMargin : 15),
@@ -93,7 +94,7 @@ class HomeScreen extends StatelessWidget {
                           imageUrl: homeScreenController.topVisitedList[index].image!,
                           imageBuilder: (context, imageProvider) => Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(
+                              borderRadius: const BorderRadius.all(
                                 Radius.circular(16),
                               ),
                               image: DecorationImage(
@@ -102,8 +103,8 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          placeholder: (context, url) => loading(),
-                          errorWidget: (context, url, error) => Icon(
+                          placeholder: (context, url) => const loading(),
+                          errorWidget: (context, url, error) => const Icon(
                             Icons.image_not_supported_outlined,
                             size: 50,
                             color: Colors.grey,
@@ -137,45 +138,50 @@ class HomeScreen extends StatelessWidget {
           itemCount: homeScreenController.topPodcasts.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return Padding(
-              padding: EdgeInsets.only(right: index == 0 ? bodyMargin : 15),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(8),
-                    child: SizedBox(
-                      width: size.width / 2.5,
-                      height: size.height / 5.5,
-                      child: CachedNetworkImage(
-                        imageUrl: homeScreenController.topPodcasts[index].poster!,
-                        imageBuilder: (context, imageProvider) => Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(16),
-                            ),
-                            image: DecorationImage(
-                              image: imageProvider,
-                              fit: BoxFit.cover,
+            return GestureDetector(
+              onTap: () {
+                Get.toNamed(NamedRoute.singlePodcast,arguments: homeScreenController.topPodcasts[index]);
+              },
+              child: Padding(
+                padding: EdgeInsets.only(right: index == 0 ? bodyMargin : 15),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: SizedBox(
+                        width: size.width / 2.5,
+                        height: size.height / 5.5,
+                        child: CachedNetworkImage(
+                          imageUrl: homeScreenController.topPodcasts[index].poster!,
+                          imageBuilder: (context, imageProvider) => Container(
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(16),
+                              ),
+                              image: DecorationImage(
+                                image: imageProvider,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
-                        ),
-                        placeholder: (context, url) => const SpinKitFadingCube(
-                          color: SolidColors.primaryColors,
-                          size: 32,
-                        ),
-                        errorWidget: (context, url, error) => Icon(
-                          Icons.image_not_supported_outlined,
-                          size: 50,
-                          color: Colors.grey,
+                          placeholder: (context, url) => const SpinKitFadingCube(
+                            color: SolidColors.primaryColors,
+                            size: 32,
+                          ),
+                          errorWidget: (context, url, error) => const Icon(
+                            Icons.image_not_supported_outlined,
+                            size: 50,
+                            color: Colors.grey,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    width: size.width / 2.5,
-                    child: Text(homeScreenController.topPodcasts[index].title!),
-                  ),
-                ],
+                    SizedBox(
+                      width: size.width / 2.5,
+                      child: Text(homeScreenController.topPodcasts[index].title!),
+                    ),
+                  ],
+                ),
               ),
             );
           },
@@ -194,7 +200,7 @@ class HomeScreen extends StatelessWidget {
             imageUrl: homeScreenController.poster.value.image!,
             imageBuilder: (context, imageProvider) => Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(16),
                 ),
                 image: DecorationImage(
@@ -203,14 +209,14 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            placeholder: (context, url) => loading(),
-            errorWidget: (context, url, error) => Icon(
+            placeholder: (context, url) => const loading(),
+            errorWidget: (context, url, error) => const Icon(
               Icons.image_not_supported_outlined,
               size: 50,
               color: Colors.grey,
             ),
           ),
-          foregroundDecoration: BoxDecoration(
+          foregroundDecoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(16)),
             gradient: LinearGradient(
               colors: GradiantColors.homeposterCoverGradiant,
@@ -238,8 +244,8 @@ class HomeScreen extends StatelessWidget {
                         homePagePosterMap["View"],
                         style: textTheme.titleMedium,
                       ),
-                      SizedBox(width: 8),
-                      Icon(
+                      const SizedBox(width: 8),
+                      const Icon(
                         Icons.remove_red_eye_sharp,
                         color: Colors.white,
                         size: 16,
@@ -317,7 +323,7 @@ class SeeMorePodcast extends StatelessWidget {
             Assets.icons.microphone.provider(),
             color: SolidColors.seemore,
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           Text(MyStrings.viewHotestPodCasts, style: textTheme.displaySmall),
         ],
       ),

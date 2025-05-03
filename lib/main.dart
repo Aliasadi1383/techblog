@@ -4,20 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage_pro/get_storage_pro.dart';
-import 'package:tec/binding.dart';
 import 'package:tec/constant/my_colors.dart';
 import 'package:tec/my_http_overrides.dart';
-import 'package:tec/view/articles/manage_article.dart';
-import 'package:tec/view/articles/single.dart';
-import 'package:tec/view/articles/single_manage_article.dart';
-import 'package:tec/view/main_screen/main_screen.dart';
-import 'package:tec/view/splash_screen.dart';
+import 'package:tec/route_manager/names.dart';
+import 'package:tec/route_manager/pages.dart';
 
 
 void main() async{
 HttpOverrides.global=MyHttpOverrides();
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
+    const SystemUiOverlayStyle(
       statusBarColor: SolidColors.statusBarColor,
       statusBarIconBrightness: Brightness.dark,
       systemNavigationBarColor: SolidColors.systemNavigationBarColor,
@@ -37,17 +33,12 @@ class MyApp extends StatelessWidget {
     var textTheme = Theme.of(context).textTheme;
 
     return GetMaterialApp(
-     locale: Locale('fa'),
+      initialRoute:NamedRoute.initialRoute,
+     locale: const Locale('fa'),
       theme: lightTheme(textTheme),
       debugShowCheckedModeBanner: false,
-      getPages: [
-        GetPage(name: NamedRoute.routeMainScreen, page:()=> MainScreen(),binding: RegisterBinding()),
-        GetPage(name:NamedRoute.routeSingleArticle, page:()=> Single(),binding: ArticleBinding()),
-        GetPage(name:NamedRoute.manageArticle, page:()=> ManageArticle(),binding: ArticleManagerBinding()),
-        GetPage(name:NamedRoute.singleManageArticle, page:()=> SingleManageArticle(),binding: ArticleManagerBinding()),
-      ],
-      //home: SplashScreen(),
-      home:SplashScreen(),
+      getPages: Pages.pages,
+    //  home:SinglePodcast(),
     );
   }
 
@@ -56,7 +47,7 @@ class MyApp extends StatelessWidget {
       inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16),
         
-        borderSide: BorderSide(width: 2),
+        borderSide: const BorderSide(width: 2),
         ),
         filled: true,
         fillColor: Colors.white
@@ -83,7 +74,7 @@ class MyApp extends StatelessWidget {
 
       fontFamily: 'dubai',
       brightness: Brightness.light,
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
         displayLarge: TextStyle(
           fontFamily: 'dubai',
           fontSize: 16,
@@ -118,7 +109,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'dubai',
           fontSize: 14,
           fontWeight: FontWeight.w700,
-          color: const Color.fromARGB(255, 70, 70, 70),
+          color: Color.fromARGB(255, 70, 70, 70),
         ),
         headlineSmall: TextStyle(
           fontFamily: 'dubai',
@@ -132,10 +123,3 @@ class MyApp extends StatelessWidget {
 }
 
 
-
-class NamedRoute{
-static String routeMainScreen='/MainScreen';
-static String routeSingleArticle='/SingleArticle';
-static String manageArticle='/ManageArticle';
-static String singleManageArticle='/SingleManageArticle';
-}

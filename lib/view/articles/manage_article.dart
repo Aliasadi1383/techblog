@@ -8,7 +8,7 @@ import 'package:tec/component/my_component.dart';
 import 'package:tec/controller/article/manage_article_controller.dart';
 import 'package:tec/gen/assets.gen.dart';
 import 'package:tec/constant/my_strings.dart';
-import 'package:tec/main.dart';
+import 'package:tec/route_manager/names.dart';
 
 class ManageArticle extends StatelessWidget {
    ManageArticle({super.key});
@@ -23,7 +23,7 @@ class ManageArticle extends StatelessWidget {
       child: Scaffold(
         appBar: appBar('مدیریت مقاله'),
         body:  Obx(
-              ()=>articleManageController.loading.value?loading():articleManageController.articleList.isNotEmpty? ListView.builder(
+              ()=>articleManageController.loading.value?const loading():articleManageController.articleList.isNotEmpty? ListView.builder(
                   scrollDirection: Axis.vertical,
                   itemCount: articleManageController.articleList.length,
                   itemBuilder: (context, index) {
@@ -45,7 +45,7 @@ class ManageArticle extends StatelessWidget {
                                 imageBuilder: (context, imageProvider) {
                                   return Container(
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(Radius.circular(16)),
+                                      borderRadius: const BorderRadius.all(Radius.circular(16)),
                                       image: DecorationImage(
                                         image: imageProvider,
                                         fit: BoxFit.cover,
@@ -54,14 +54,14 @@ class ManageArticle extends StatelessWidget {
                                   );
                                 },
                                 placeholder: (context, url) {
-                                  return loading();
+                                  return const loading();
                                 },
                                 errorWidget: (context, url, error) {
-                                  return Icon(Icons.image_not_supported_outlined,size: 50,color: Colors.grey,);
+                                  return const Icon(Icons.image_not_supported_outlined,size: 50,color: Colors.grey,);
                                 },
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 16,
                             ),
                             Column(
@@ -74,12 +74,12 @@ class ManageArticle extends StatelessWidget {
                                   maxLines: 2,
                                   ),
                                 ),
-                                SizedBox(height: 16,),
+                                const SizedBox(height: 16,),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(articleManageController.articleList[index].author!,style: textTheme.bodySmall,),
-                                    SizedBox(width:10),
+                                    const SizedBox(width:10),
                                     Text("${articleManageController.articleList[index].view!} بازدید",style: textTheme.bodySmall,),
                                   ],
                                 )
@@ -103,7 +103,7 @@ class ManageArticle extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed(NamedRoute.singleManageArticle);
                   },
-                  child: Text('بریم برای نوشتن یه مقاله باحال' ,style: TextStyle(color: Colors.white),),
+                  child: const Text('بریم برای نوشتن یه مقاله باحال' ,style: TextStyle(color: Colors.white),),
                 ),
               ),
             ),

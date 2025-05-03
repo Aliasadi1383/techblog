@@ -40,7 +40,7 @@ class RegisterIntro extends StatelessWidget {
                   onPressed: () {
                     _showEmailBottomSheet(context, size, textTheme);
                   },
-                  child: Text('بزن بریم'),
+                  child: const Text('بزن بریم'),
                 ),
               ),
             ],
@@ -60,7 +60,7 @@ class RegisterIntro extends StatelessWidget {
                         padding:  EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
                         child: Container(
                           height: size.height/2,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(30),
@@ -90,7 +90,7 @@ class RegisterIntro extends StatelessWidget {
                                   registerController.register();
                                   Navigator.pop(context);
                                _activateCodeEmailBottomSheet(context, size, textTheme);
-                                }, child: Text('ادامه')),
+                                }, child: const Text('ادامه')),
                               ],
                             ),
                           )
@@ -108,7 +108,7 @@ class RegisterIntro extends StatelessWidget {
                         padding:  EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
                         child: Container(
                           height: size.height/2,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(30),
@@ -137,7 +137,7 @@ class RegisterIntro extends StatelessWidget {
                                 ElevatedButton(onPressed: (){
                                   registerController.verify();
                                 // Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => MyCats(),));
-                                }, child: Text('ادامه')),
+                                }, child: const Text('ادامه')),
                               ],
                             ),
                           )

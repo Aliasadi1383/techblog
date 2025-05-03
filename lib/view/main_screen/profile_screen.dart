@@ -19,11 +19,11 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       child: Column(
         children: [
           Image(image: Assets.images.avatar.provider(), height: 100),
-          SizedBox(height: 12),
+          const SizedBox(height: 12),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -31,14 +31,14 @@ class ProfileScreen extends StatelessWidget {
                 Assets.icons.bluepen.provider(),
                 color: SolidColors.seemore,
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Text(MyStrings.imageProfileEdit, style: textTheme.displaySmall),
             ],
           ),
-          SizedBox(height: 60),
-          Text('فاطمه امیری', style: textTheme.headlineLarge),
+          const SizedBox(height: 60),
+          Text('علی اسدی', style: textTheme.headlineLarge),
           Text('fatemeamiri@gmail.com', style: textTheme.headlineLarge),
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           TechDivider(size: size),
           InkWell(
             onTap: () {},
@@ -79,7 +79,7 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 200,
           )
         ],

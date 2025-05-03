@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:tec/component/decorations.dart';
 import 'package:tec/component/dimens.dart';
 import 'package:tec/component/my_component.dart';
 import 'package:tec/constant/my_strings.dart';
@@ -41,12 +42,12 @@ class MainScreen extends StatelessWidget {
                     selectedPageIndex.value=1;
                   },
                 ),
-                Divider(color: SolidColors.dividerColor),
+                const Divider(color: SolidColors.dividerColor),
                 ListTile(
                   title: Text('درباره تک بلاگ', style: textTheme.headlineLarge),
                   onTap: () {},
                 ),
-                Divider(color: SolidColors.dividerColor),
+                const Divider(color: SolidColors.dividerColor),
                 ListTile(
                   title: Text(
                     'اشتراک گذاری تک بلاگ',
@@ -56,7 +57,7 @@ class MainScreen extends StatelessWidget {
                   await Share.share(MyStrings.shareText);
                   },
                 ),
-                Divider(color: SolidColors.dividerColor),
+                const Divider(color: SolidColors.dividerColor),
                 ListTile(
                   title: Text(
                     'تک بلاگ در گیت هاب',
@@ -66,7 +67,7 @@ class MainScreen extends StatelessWidget {
                     myLaunchUrl(MyStrings.techBlogGithubUrl);
                   },
                 ),
-                Divider(color: SolidColors.dividerColor),
+                const Divider(color: SolidColors.dividerColor),
               ],
             ),
           ),
@@ -83,13 +84,13 @@ class MainScreen extends StatelessWidget {
                   _key.currentState!.openDrawer();
                 },
 
-                child: Icon(Icons.menu),
+                child: const Icon(Icons.menu),
               ),
               Image(
                 image: Assets.images.a1.provider(),
                 height: size.height / 13.6,
               ),
-              Icon(Icons.search),
+              const Icon(Icons.search),
             ],
           ),
         ),
@@ -151,7 +152,7 @@ class BottomNavigation extends StatelessWidget {
       left: 0,
       child: Container(
         height: size.height / 13,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: GradiantColors.bottomNavbackground,
             begin: Alignment.topCenter,
@@ -162,10 +163,7 @@ class BottomNavigation extends StatelessWidget {
           padding: EdgeInsets.only(right: bodyMargin, left: bodyMargin),
           child: Container(
             height: size.height / 14,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(18),
-              gradient: LinearGradient(colors: GradiantColors.bottomNav),
-            ),
+            decoration:MyDecorations.mainGradiant,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

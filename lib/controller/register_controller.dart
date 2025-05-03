@@ -7,7 +7,7 @@ import 'package:get_storage_pro/get_storage_pro.dart';
 import 'package:tec/constant/api_constant.dart';
 import 'package:tec/constant/storage_const.dart';
 import 'package:tec/gen/assets.gen.dart';
-import 'package:tec/main.dart';
+import 'package:tec/route_manager/names.dart';
 import 'package:tec/services/dio_service.dart';
 import 'package:tec/view/main_screen/main_screen.dart';
 import 'package:tec/view/register/register_intro.dart';
@@ -23,7 +23,7 @@ class RegisterController extends GetxController {
       'email': emailTextEditingController.text,
       'command': 'register',
     };
-    var responce = await DioService().postMethod(map, ApiConstant.postRegister);
+    var responce = await DioService().postMethod(map, ApiUrlConstant.postRegister);
     email = emailTextEditingController.text;
     userId = responce.data['user_id'];
     debugPrint(responce.toString());
@@ -38,7 +38,7 @@ class RegisterController extends GetxController {
       //response: verified, user_id: 585, token: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NTg1LCJlbWFpbCI6ImFsaWFzYWRpLjAxMjM0NTY3ODkxMEBnbWFpbC5jb20ifQ.YKSVxQ2QZWrutcSZ1FU8PIk1TFXVcgfpnPi8yr9uPvw}
     };
     debugPrint(map.toString());
-    var responce = await DioService().postMethod(map, ApiConstant.postRegister);
+    var responce = await DioService().postMethod(map, ApiUrlConstant.postRegister);
     debugPrint(responce.data.toString());
     var status = responce.data['response'];
 
@@ -72,7 +72,7 @@ class RegisterController extends GetxController {
     Get.bottomSheet(
       Container(
         height: Get.height / 3,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20),
@@ -86,16 +86,16 @@ class RegisterController extends GetxController {
               Row(
                 children: [
                   SvgPicture.asset(Assets.images.tecbut.path, height: 40),
-                  SizedBox(width: 8),
-                  Text('دونسته هات را با بقیه به اشتراک بگذار...'),
+                  const SizedBox(width: 8),
+                  const Text('دونسته هات را با بقیه به اشتراک بگذار...'),
                 ],
               ),
-              SizedBox(height: 8),
-              Text('''
+              const SizedBox(height: 8),
+              const Text('''
 فکر کن !!  اینجا بودنت به این معناست که یک گیک تکنولوژی هستی
 دونسته هات رو با  جامعه‌ی گیک های فارسی زبان به اشتراک بذار..
 '''),
-SizedBox(height: 80,),
+const SizedBox(height: 80,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -111,8 +111,8 @@ SizedBox(height: 80,),
                             Assets.icons.writeArticleIcon.path,
                             height: 32,
                           ),
-                          SizedBox(width: 8),
-                          Text('مدیریت مقاله ها'),
+                          const SizedBox(width: 8),
+                          const Text('مدیریت مقاله ها'),
                         ],
                       ),
                     ),
@@ -128,8 +128,8 @@ SizedBox(height: 80,),
                             Assets.icons.writePodcastIcon.path,
                             height: 32,
                           ),
-                          SizedBox(width: 8),
-                          Text('مدیریت پادکست ها'),
+                          const SizedBox(width: 8),
+                          const Text('مدیریت پادکست ها'),
                         ],
                       ),
                     ),

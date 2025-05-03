@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:tec/component/my_component.dart';
 import 'package:tec/controller/article/list_article_controller.dart';
 import 'package:tec/controller/article/single_article_controller.dart';
-import 'package:tec/main.dart';
+import 'package:tec/route_manager/names.dart';
 
 class ArticleListScreen extends StatelessWidget {
     String title;
@@ -51,7 +51,7 @@ class ArticleListScreen extends StatelessWidget {
                                 imageBuilder: (context, imageProvider) {
                                   return Container(
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(Radius.circular(16)),
+                                      borderRadius: const BorderRadius.all(Radius.circular(16)),
                                       image: DecorationImage(
                                         image: imageProvider,
                                         fit: BoxFit.cover,
@@ -60,14 +60,14 @@ class ArticleListScreen extends StatelessWidget {
                                   );
                                 },
                                 placeholder: (context, url) {
-                                  return loading();
+                                  return const loading();
                                 },
                                 errorWidget: (context, url, error) {
-                                  return Icon(Icons.image_not_supported_outlined,size: 50,color: Colors.grey,);
+                                  return const Icon(Icons.image_not_supported_outlined,size: 50,color: Colors.grey,);
                                 },
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 16,
                             ),
                             Column(
@@ -80,12 +80,12 @@ class ArticleListScreen extends StatelessWidget {
                                   maxLines: 2,
                                   ),
                                 ),
-                                SizedBox(height: 16,),
+                                const SizedBox(height: 16,),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(listarticleController.articleList[index].author!,style: textTheme.bodySmall,),
-                                    SizedBox(width:10),
+                                    const SizedBox(width:10),
                                     Text("${listarticleController.articleList[index].view!} بازدید",style: textTheme.bodySmall,),
                                   ],
                                 )

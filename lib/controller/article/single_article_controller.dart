@@ -20,8 +20,8 @@ class SingleArticleController extends GetxController{
     articleInfoModel=ArticleInfoModel(null,null,null).obs;
     loading.value=true;
     var userId='';
-    debugPrint(ApiConstant.baseurl+'article/get.php?command=info&id=$id&user_id=$userId');
-    var responce = await DioService().getMethod(ApiConstant.baseurl+'article/get.php?command=info&id=$id&user_id=$userId');
+    debugPrint(ApiUrlConstant.baseurl+'article/get.php?command=info&id=$id&user_id=$userId');
+    var responce = await DioService().getMethod(ApiUrlConstant.baseurl+'article/get.php?command=info&id=$id&user_id=$userId');
 
     if (responce.statusCode == 200) {
       articleInfoModel.value=ArticleInfoModel.fromjson(responce.data);

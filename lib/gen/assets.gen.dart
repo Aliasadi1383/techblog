@@ -15,10 +15,6 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/icons/Microphone.png
-  AssetGenImage get microphone =>
-      const AssetGenImage('assets/icons/Microphone.png');
-
   /// File path: assets/icons/bluepen.png
   AssetGenImage get bluepen => const AssetGenImage('assets/icons/bluepen.png');
 
@@ -27,6 +23,10 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/home.png
   AssetGenImage get home => const AssetGenImage('assets/icons/home.png');
+
+  /// File path: assets/icons/microphone.png
+  AssetGenImage get microphone =>
+      const AssetGenImage('assets/icons/microphone.png');
 
   /// File path: assets/icons/user.png
   AssetGenImage get user => const AssetGenImage('assets/icons/user.png');
@@ -44,10 +44,10 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
-    microphone,
     bluepen,
     hashtag,
     home,
+    microphone,
     user,
     write,
     writeArticleIcon,

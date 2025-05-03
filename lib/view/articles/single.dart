@@ -23,7 +23,7 @@ class Single extends StatelessWidget {
           child: Obx(
             () =>
                 singleArticleController.articleInfoModel.value.id == null
-                    ? SizedBox(height: Get.height, child: loading())
+                    ? SizedBox(height: Get.height, child: const loading())
                     : Column(
                       children: [
                         Stack(
@@ -37,7 +37,7 @@ class Single extends StatelessWidget {
                               imageBuilder:
                                   (context, imageProvider) =>
                                       Image(image: imageProvider),
-                              placeholder: (context, url) => loading(),
+                              placeholder: (context, url) => const loading(),
                               errorWidget:
                                   (context, url, error) => Image.asset(
                                     Assets.images.posterTest.path,
@@ -49,7 +49,7 @@ class Single extends StatelessWidget {
                               left: 0,
                               child: Container(
                                 height: 60,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   gradient: LinearGradient(
                                     end: Alignment.bottomCenter,
                                     begin: Alignment.topCenter,
@@ -59,30 +59,30 @@ class Single extends StatelessWidget {
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
-                                    SizedBox(width: 20),
+                                    const SizedBox(width: 20),
                                     GestureDetector(
                                       onTap: () {
                                         Get.back();
                                       },
-                                      child: Icon(
+                                      child: const Icon(
                                         Icons.arrow_back,
                                         color: Colors.white,
                                         size: 20,
                                       ),
                                     ),
-                                    Expanded(child: SizedBox()),
-                                    Icon(
+                                    const Expanded(child: SizedBox()),
+                                    const Icon(
                                       Icons.bookmark_border_rounded,
                                       color: Colors.white,
                                       size: 20,
                                     ),
-                                    SizedBox(width: 20),
-                                    Icon(
+                                    const SizedBox(width: 20),
+                                    const Icon(
                                       Icons.share,
                                       color: Colors.white,
                                       size: 20,
                                     ),
-                                    SizedBox(width: 20),
+                                    const SizedBox(width: 20),
                                   ],
                                 ),
                               ),
@@ -111,7 +111,7 @@ class Single extends StatelessWidget {
                                     ).image,
                                 height: 50,
                               ),
-                              SizedBox(width: 16),
+                              const SizedBox(width: 16),
                               Text(
                                 singleArticleController
                                     .articleInfoModel
@@ -119,7 +119,7 @@ class Single extends StatelessWidget {
                                     .author!,
                                 style: textThem.headlineLarge,
                               ),
-                              SizedBox(width: 16),
+                              const SizedBox(width: 16),
                               Text(
                                 singleArticleController
                                     .articleInfoModel
@@ -141,12 +141,12 @@ class Single extends StatelessWidget {
                             enableCaching: true,
                             onLoadingBuilder:
                                 (context, element, loadingProgress) =>
-                                    loading(),
+                                    const loading(),
                           ),
                         ),
 
                         tags(textThem),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         simmilar(textThem),
                       ],
                     ),
@@ -176,15 +176,15 @@ Widget tags(textTheme) {
             Get.to(ArticleListScreen(title: tagName));
           },
           child: Padding(
-            padding: EdgeInsets.only(left: 8),
+            padding: const EdgeInsets.only(left: 8),
             child: Container(
               height: 30,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(24)),
                 color: Colors.grey,
               ),
               child: Padding(
-                padding: EdgeInsets.fromLTRB(8, 8, 8, 8),
+                padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
                 child: Text(
                   singleArticleController.tagList[index].title!,
                   style: textTheme.displayMedium,
@@ -226,7 +226,7 @@ Widget simmilar(textTheme) {
                       imageBuilder:
                           (context, imageProvider) => Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(16)),
+                              borderRadius: const BorderRadius.all(Radius.circular(16)),
                               image: DecorationImage(
                                 image: imageProvider,
                                 fit: BoxFit.cover,
@@ -251,7 +251,7 @@ Widget simmilar(textTheme) {
                                         .author!,
                                     style: textTheme.titleMedium,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 8,
                                   ),
                                   Text(
@@ -260,11 +260,11 @@ Widget simmilar(textTheme) {
                                         .view!,
                                         style: textTheme.titleMedium,
                                   ),
-                                  Icon(
+                                  const Icon(
                                     Icons.remove_red_eye_sharp,
                                     color: Colors.white,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 30,
                                   )
                                 ],
@@ -272,9 +272,9 @@ Widget simmilar(textTheme) {
                               ]
                             ),
                           ),
-                      placeholder: (context, url) => loading(),
+                      placeholder: (context, url) => const loading(),
                       errorWidget:
-                          (context, url, error) => Icon(
+                          (context, url, error) => const Icon(
                             Icons.image_not_supported_outlined,
                             size: 50,
                             color: Colors.grey,
